@@ -1,10 +1,21 @@
 """Serve linked data profile."""
 
-from flask import Flask
+import os
+
+from flask import Flask, Response, url_for
 
 app = Flask(__name__)
 
+SENTRY_SDK = os.getenv("SENTRY_SDK")
 
-@app.route('/')
+if SENTRY_SDK:
+    import sentry_sdk
+    from sentry_sdk.integrations.flask import FlaskIntegration
+
+    sentry_sdk.init(SENTRY_SDK, integrations=[FlaskIntegration()])
+
+
+@app.route("/")
 def index():
-    return 'ok'
+    base_url = url_for('.index', _external=True, _anchor='')
+    return Response(f'@prefix : <{base_url}>.', mimetype='text/turle')
