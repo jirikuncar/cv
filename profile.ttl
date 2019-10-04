@@ -1,4 +1,4 @@
-@prefix : <https://jiri.kuncar.dev/profile/#>.
+@prefix : <http://profiles.kuncar.dev/jiri/>.
 @prefix bibo: <http://purl.org/ontology/bibo/>.
 @prefix cc: <http://creativecommons.org/ns#>.
 @prefix cert: <http://www.w3.org/ns/auth/cert#>.
@@ -22,7 +22,7 @@
 
 # Profile document
 
-<https://profiles.kuncar.dev/jiri/>
+<http://profiles.kuncar.dev/jiri/>
     a foaf:Document;
     rdfs:label "Jiri Kuncar’s FOAF profile"@en, "FOAF profil Jiřího Kunčara"@cs;
     foaf:maker :me;
