@@ -35,7 +35,7 @@
     foaf:name  "Jiri Kuncar"@en, "Jiří Kunčar"@cs;
     rdfs:label "Jiri Kuncar"@en, "Jiří Kunčar"@cs;
     vcard:fn   "Jiri Kuncar"@en, "Jiří Kunčar"@cs;
-    con:preferredURI "https://profiles.kuncar.dev/jiri/";
+    con:preferredURI "http://profiles.kuncar.dev/jiri/";
     foaf:givenName "Jiri"@en, "Jiří"@cs;
     foaf:familyName "Kuncar"@en, "Kunčar"@cs;
     foaf:title "MSc."@en, "Mgr."@cs;
