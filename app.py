@@ -2,7 +2,7 @@
 
 import os
 
-from flask import Flask, Response, url_for
+from flask import Flask, Response, send_file
 
 app = Flask(__name__)
 
@@ -16,6 +16,6 @@ if SENTRY_SDK:
 
 
 @app.route("/")
+@app.route("/jiri/")
 def index():
-    base_url = url_for('.index', _external=True, _anchor='')
-    return Response(f'@prefix : <{base_url}>.', mimetype='text/turle')
+    return send_file('profile.ttl', mimetype='text/turle')
