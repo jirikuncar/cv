@@ -1,0 +1,66 @@
+@prefix : <https://jiri.kuncar.dev/profile/#>.
+@prefix bibo: <http://purl.org/ontology/bibo/>.
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix cert: <http://www.w3.org/ns/auth/cert#>.
+@prefix con: <http://www.w3.org/2000/10/swap/pim/contact#>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix dbp: <http://dbpedia.org/resource/>.
+@prefix dc: <http://purl.org/dc/terms/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix ldp: <http://www.w3.org/ns/ldp#>.
+@prefix org: <http://www.w3.org/ns/org#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix pim: <http://www.w3.org/ns/pim/space#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix schema: <http://schema.org/>.
+@prefix solid: <http://www.w3.org/ns/solid/terms#>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#>.
+@prefix wikipedia: <http://en.wikipedia.org/wiki/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+
+# Profile document
+
+<https://profiles.kuncar.dev/jiri/>
+    a foaf:Document;
+    rdfs:label "Jiri Kuncar’s FOAF profile"@en, "FOAF profil Jiřího Kunčara"@cs;
+    foaf:maker :me;
+    foaf:primaryTopic :me.
+
+
+# Personal details
+
+:me a foaf:Person;
+    foaf:name  "Jiri Kuncar"@en, "Jiří Kunčar"@cs;
+    rdfs:label "Jiri Kuncar"@en, "Jiří Kunčar"@cs;
+    vcard:fn   "Jiri Kuncar"@en, "Jiří Kunčar"@cs;
+    con:preferredURI "https://profiles.kuncar.dev/jiri/";
+    foaf:givenName "Jiri"@en, "Jiří"@cs;
+    foaf:familyName "Kuncar"@en, "Kunčar"@cs;
+    foaf:title "MSc."@en, "Mgr."@cs;
+    dbo:birthPlace dbp:NovyJicin;
+    dbo:birthDate "1987-07-08"^^xsd:date;
+    foaf:birthday "07-08";
+    foaf:age 32;
+    foaf:gender "male"@en;
+    dbo:location dbp:Bilbao;
+    foaf:based_near dbp:Bilbao;
+    foaf:img <https://jiri.kuncar.dev/images/jiri.png>;
+    foaf:mbox <mailto:jiri@kuncar.dev>;
+    foaf:homepage <https://jiri.kuncar.dev/>;
+    foaf:weblog <https://jiri.kuncar.dev/blog/>;
+    foaf:publications <https://jiri.kuncar.dev/publications/>;
+    foaf:account <https://github.com/jirikuncar>,
+                 <https://twitter.com/jirikuncar>,
+                 <https://www.linkedin.com/in/jirikuncar/>;
+    dbo:orcidId "0000-0002-3995-3795";
+    foaf:workplaceHomepage <https://stubhub.com/>,
+                           <https://www.datascience.ch/>,
+                           <https://home.cern/>,
+                           <https://www.redhat.com/>;
+    cert:key [
+        a cert:RSAPublicKey;
+        cert:modulus "TODO"^^xsd:hexBinary;
+        cert:exponent 00000;
+    ].
