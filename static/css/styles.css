@@ -442,6 +442,57 @@ body, .regular {
   user-select: none;
 }
 
+/* LAYOUT */
+
+header, nav {
+  text-align: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+header {
+  min-height: 100vh;
+}
+
+header * {
+  position: relative;
+}
+
+header>article, main>section {
+  padding: 5vh 5vw 5vh 5vw;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 101;
+  padding: 2vh 5vw 2vh 5vw;
+  line-height: 1.6;
+  opacity: 1;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+main {
+  margin-bottom: calc(4vh + 3.2em);
+}
+
+main section:not(:last-child) {
+  margin-bottom: 5vh;
+}
+
 /* TYPOGRAPHY */
 
 p {
@@ -449,10 +500,15 @@ p {
   margin-bottom: 2em;
   margin-top: 10px;
   line-height: 1.6;
+  max-width: 450px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   line-height: 1em;
+}
+
+h1 span, h2 span, h3 span, h4 span {
+  font-size: 80%
 }
 
 h1 {
@@ -464,7 +520,7 @@ h1 {
 }
 
 h2 {
-  font-weight: 500;
+  font-weight: 700;
   font-family: "Monoid Bold", monospace;
   font-size: 1.5em;
   letter-spacing: calc(-1em / 30);
@@ -482,6 +538,15 @@ h3 {
   font-feature-settings: "ss11";
 }
 
+h4 {
+  font-weight: 500;
+  font-family: "Monoid Bold", monospace;
+  font-size: 1em;
+  margin: 22px 0 14px 0;
+  -webkit-font-feature-settings: "ss11";
+  font-feature-settings: "ss11";
+}
+
 .hljs-comment {
   font-weight: normal;
   font-family: "Monoid Italic", monospace;
@@ -492,50 +557,31 @@ a, #close {
   text-decoration: none;
 }
 
-.monoisome, #test {
+.monoisome {
   font-family: "monoisomeregular", monospace;
 }
 
 .lead {
   font-weight: 100;
-  font-style: italic;
-  max-width: 450px;
+  font-family: "Monoid Italic", monospace;
 }
 
-/* OTHER */
+/* COLORS */
 
 nav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #6d2121;
+  background-color: #FEE6C0;
   box-shadow: 0 8px 17px 17px rgba(0, 0, 0, 0.2), 0 2px 5px 5px rgba(0, 0, 0, 0.15);
-  color: white;
-  z-index: 101;
-  padding: 2vh 5vw 2vh 5vw;
-  line-height: 1.6;
-  opacity: 1;
-  -webkit-transition: 0.2s ease;
-  transition: 0.2s ease;
 }
 
-main {
-  margin-bottom: 80px;
-  padding: 5vh 5vw 5vh 5vw;
-}
-
-main section:not(:last-child) {
-  margin-bottom: 5vh;
+nav, nav>* {
+  color: #222831;
 }
 
 header {
   background-color: #222831;
-  min-height: 100vh;
-  padding: 10vh 5vw 10vh 5vw;
 }
 
-header, header a, nav a {
+header, header a {
   color: #FEE6C0;
 }
 
@@ -546,7 +592,7 @@ nav a {
 }
 
 nav a:hover {
-  color: rgb(60, 255, 0);
+  text-decoration: none;
 }
 
 nav a:not(:last-child):after {
@@ -561,11 +607,9 @@ nav a:not(:last-child):after {
 [before]::before {
   color: #dfa612;
   content: attr(before);
-  font-style: italic;
 }
 
 [after]::after {
   color: #dfa612;
   content: attr(after);
-  font-style: italic;
 }
