@@ -613,3 +613,20 @@ nav a:not(:last-child):after {
   color: #dfa612;
   content: attr(after);
 }
+
+/* The typewriter cursor effect */
+
+header h1::after {
+  color: #dfa612;
+  content: "_";
+  animation: blink-caret 2s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+}
