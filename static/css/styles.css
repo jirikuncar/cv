@@ -456,7 +456,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-weight: bold;
+  font-weight: 700;
   font-family: "Monoid Bold", monospace;
   font-size: 3em;
   letter-spacing: calc(-3em / 30);
@@ -464,19 +464,20 @@ h1 {
 }
 
 h2 {
-  font-weight: bold;
+  font-weight: 500;
   font-family: "Monoid Bold", monospace;
   font-size: 1.5em;
   letter-spacing: calc(-1em / 30);
-  margin: 22px 0 14px -1px;
+  margin: 22px 0 14px 0;
   -webkit-font-feature-settings: "ss11";
   font-feature-settings: "ss11";
 }
 
 h3 {
-  font-weight: normal;
-  font-family: "Monoid Italic", monospace;
-  font-size: 5vmin;
+  font-weight: 500;
+  font-family: "Monoid Bold", monospace;
+  font-size: 1.2em;
+  margin: 22px 0 14px 0;
   -webkit-font-feature-settings: "ss11";
   font-feature-settings: "ss11";
 }
