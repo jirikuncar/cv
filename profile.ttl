@@ -1,4 +1,4 @@
-@prefix : <http://profiles.kuncar.dev/jiri/>.
+@prefix : <http://profiles.kuncar.dev/jiri/#>.
 @prefix bibo: <http://purl.org/ontology/bibo/>.
 @prefix cc: <http://creativecommons.org/ns#>.
 @prefix cert: <http://www.w3.org/ns/auth/cert#>.

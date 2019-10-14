@@ -37,7 +37,6 @@ accept_handlers = {
 }
 
 
-@app.route("/")
 @app.route("/jiri/")
 @cross_origin()
 def index():
