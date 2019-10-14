@@ -2,9 +2,11 @@
 
 import os
 
-from flask import Flask, Response, send_file
+from flask import Flask, send_file
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+CORS(app)
 
 SENTRY_SDK = os.getenv("SENTRY_SDK")
 
@@ -17,5 +19,6 @@ if SENTRY_SDK:
 
 @app.route("/")
 @app.route("/jiri/")
+@cross_origin()
 def index():
     return send_file('profile.ttl', mimetype='text/turle')
