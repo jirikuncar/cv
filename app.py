@@ -32,7 +32,7 @@ def handle_other(filename='profile.ttl', format='trig',
 
 
 accept_handlers = {
-    'application/trig': functools.partial(handle_other, format='trig'),
+    # 'application/trig': functools.partial(handle_other, format='trig'),
     'text/turtle': handle_text_turtle,
 }
 
