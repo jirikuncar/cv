@@ -372,6 +372,7 @@ template {
   /* Safari, Android, iOS */
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -385,6 +386,7 @@ template {
   /* Safari, Android, iOS */
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -398,6 +400,7 @@ template {
   /* Safari, Android, iOS */
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -406,6 +409,7 @@ template {
   src: url('monoisome-regular.eot?#iefix') format('embedded-opentype'), url('monoisome-regular.woff2') format('woff2'), url('monoisome-regular.woff') format('woff'), url('monoisome-regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /* GENERAL STYLE */
