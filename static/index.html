@@ -205,7 +205,6 @@
                             continuous integration services.</p>
                     </section>
                 </article>
-
             </section>
             <section id="opensource">
                 <h2>Open-Source</h2>
@@ -219,9 +218,9 @@
             <section id="publications">
                 <h2>Publications</h2>
 
-                <p itemscope itemtype="https://schema.org/Person">source: <a itemprop="sameAs"
-                        content="https://orcid.org/0000-0002-3995-3795" href="https://orcid.org/0000-0002-3995-3795"
-                        target="orcid.widget" style="vertical-align:top;"><img
+                <p>source: <a property="sameAs" content="https://orcid.org/0000-0002-3995-3795"
+                        href="https://orcid.org/0000-0002-3995-3795" target="orcid.widget"
+                        style="vertical-align:top;"><img
                             src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
                             style="width:1em;margin-right:.5em;"
                             alt="ORCID iD icon">https://orcid.org/0000-0002-3995-3795</a></p>
@@ -255,46 +254,61 @@
             </section>
             <section id="education">
                 <h2>Education</h2>
-                <article>
-                    <h3>
-                        <a href="https://www.mdh.se/">Mälardalen University, Västerås, Sweden</a>
-                    </h3>
-                    <p class="lead">A young university with a modern approach to teaching located in one of Sweden’s
-                        main business regions. <a before="source: "
+                <article property="alumniOf" resource="mdh" typeof="CollegeOrUniversity">
+                    <a href="https://www.mdh.se/" property="url">
+                        <h3 property="name">Mälardalen University,
+                            <span property="address" typeof="PostalAddress">
+                                <span property="addressLocality">Västerås</span>,
+                                <span property="addressCountry">Sweden</span>
+                            </span>
+                        </h3>
+                    </a>
+                    <link property="sameAs" href="https://en.wikipedia.org/wiki/M%C3%A4lardalen_University_College" />
+
+                    <p class="lead" property="description">A young university with a modern approach to teaching located
+                        in one of Sweden’s main business regions. <a before="source: "
                             href="https://studyinsweden.se/university/malardalen-university/">Study in Sweden</a></p>
-                    <section>
-                        <h4>Master's programme in Software Engineering</h4>
+                    <section property="member" typeof="OrganizationRole">
+                        <h4 property="roleName">Master's programme in Software Engineering</h4>
                         <div>
-                            <time before="'" after="' - " datetime="2010-09-01">2010/09</time>
-                            <time before="'" after="'" datetime="2011-07-30">2011/07</time>
+                            <time property="startDate" before="'" after="' - " datetime="2010-09-01">2010/09</time>
+                            <time property="endDate" before="'" after="'" datetime="2011-07-30">2011/07</time>
                         </div>
-                        <p><a href="https://www.mdh.se/idt">The school of Innovation, design and engineering</a> with
+                        <p property="description"><a href="https://www.mdh.se/idt">The school of Innovation, design and
+                                engineering</a> with
                             specialization in real-time embedded systems.</p>
                     </section>
                 </article>
-                <article>
-                    <h3>
-                        <a href="https://www.cuni.cz/">Charles University, Prague, Czech Republic</a>
-                    </h3>
+                <article property="alumniOf" resource="cuni" typeof="CollegeOrUniversity">
+                    <a href="https://www.cuni.cz/" property="url">
+                        <h3 property="name">Charles University,
+                            <span property="address" typeof="PostalAddress">
+                                <span property="addressLocality">Prague</span>,
+                                <span property="addressCountry">Czech Republic</span>
+                            </span>
+                        </h3>
+                    </a>
+                    <link property="sameAs" href="https://en.wikipedia.org/wiki/Charles_University" />
+
                     <p class="lead">Founded in 1348, it was the first university in Central Europe. <a before="source: "
                             href="https://en.wikipedia.org/wiki/Charles_University">Wikipedia</a></p>
-                    <section>
-                        <h4>Master of Computer Science</h4>
+                    <section property="member" typeof="OrganizationRole">
+                        <h4 property="roleName">Master of Computer Science</h4>
                         <div>
-                            <time before="'" after="' - " datetime="2009-10-01">2009/10</time>
-                            <time before="'" after="'" datetime="2013-02-30">2013/02</time>
+                            <time property="startDate" before="'" after="' - " datetime="2009-10-01">2009/10</time>
+                            <time property="endDate" before="'" after="'" datetime="2013-02-30">2013/02</time>
                         </div>
-                        <p><a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics</a> with specialization
-                            in
-                            database systems.</p>
+                        <p property="description"><a href="https://www.mff.cuni.cz/">Faculty of Mathematics and
+                                Physics</a> with specialization in database systems.</p>
                     </section>
-                    <section>
-                        <h4>Bachelor of Computer Science</h4>
+                    <section property="member" typeof="OrganizationRole">
+                        <h4 property="roleName">Bachelor of Computer Science</h4>
                         <div>
-                            <time before="'" after="' - " datetime="2006-10-01">2006/10</time>
-                            <time before="'" after="'" datetime="2009-06-30">2009/06</time>
+                            <time property="startDate" before="'" after="' - " datetime="2006-10-01">2006/10</time>
+                            <time property="endDate" before="'" after="'" datetime="2009-06-30">2009/06</time>
                         </div>
-                        <p><a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics</a>.</p>
+                        <p property="description"><a href="https://www.mff.cuni.cz/">Faculty of Mathematics and
+                                Physics</a>.</p>
                     </section>
                 </article>
             </section>
