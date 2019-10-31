@@ -1,3 +1,16 @@
+/* Variables */
+
+:root {
+  --body-text-color: black;
+  --body-background-color: white;
+  --inversed-background-color: black;
+  --secondary-color: #959595;
+  --action-primary-color: #00458b;
+  --action-primary-inversed-color: white;
+  --text-wrap-color: #6e008b;
+  --inversed-text-wrap-color: #54ffbd;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -418,8 +431,8 @@ body, .regular {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Monoid Regular", monospace;
-  color: #535353;
-  background-color: white;
+  color: var(--body-text-color);
+  background-color: var(--body-background-color);
   /* font-size: 14px; */
   -webkit-font-feature-settings: "liga" 1, "calt" 1;
   font-feature-settings: "liga" 1, "calt" 1;
@@ -430,13 +443,13 @@ body, .regular {
 }
 
 ::-moz-selection {
-  color: white;
-  background: #446fbd;
+  color: var(--action-primary-inversed-color);
+  background: var(--action-primary-color);
 }
 
 ::selection {
-  color: white;
-  background: #446fbd;
+  color: var(--action-primary-inversed-color);
+  background: var(--action-primary-color);
 }
 
 .noselect {
@@ -549,7 +562,7 @@ h4 {
 }
 
 a, #close {
-  color: #446fbd;
+  color: var(--action-primary-color);
   text-decoration: none;
 }
 
@@ -569,20 +582,20 @@ a:hover {
 /* COLORS */
 
 nav {
-  background-color: #FEE6C0;
+  background-color: var(--inversed-background-color);
   box-shadow: 0 8px 17px 17px rgba(0, 0, 0, 0.2), 0 2px 5px 5px rgba(0, 0, 0, 0.15);
 }
 
 nav, nav>* {
-  color: #222831;
+  color: var(--action-primary-inversed-color);
 }
 
 header {
-  background-color: #222831;
+  background-color: var(--inversed-background-color);
 }
 
 header, header a {
-  color: #FEE6C0;
+  color: var(--action-primary-inversed-color);
 }
 
 nav a {
@@ -596,7 +609,7 @@ nav a:hover {
 }
 
 nav a:not(:last-child):after {
-  color: #dfa612;
+  color: var(--inversed-text-wrap-color);
   content: ", ";
   display: inline-block;
   text-decoration-line: none;
@@ -605,19 +618,22 @@ nav a:not(:last-child):after {
 /* MAGIC */
 
 [before]::before {
-  color: #dfa612;
+  color: var(--text-wrap-color);
   content: attr(before);
 }
 
 [after]::after {
-  color: #dfa612;
+  color: var(--text-wrap-color);
   content: attr(after);
+}
+
+header [after]::after, header [before]::before, header h1::after {
+  color: var(--inversed-text-wrap-color);
 }
 
 /* The typewriter cursor effect */
 
 header h1::after {
-  color: #dfa612;
   content: "_";
   animation: blink-caret 2s step-end infinite;
 }
