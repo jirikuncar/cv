@@ -66,7 +66,7 @@
 
     <header id="profile" class="layout">
         <article>
-            <h1 property="name">Jiří Kunčar</h1>
+            <h1 property="name" before="> ">Jiří Kunčar</h1>
             <link property="nationality" href="https://en.wikipedia.org/wiki/Czech_Republic" typeof="Country" />
             <link property="image" href="https://www.gravatar.com/avatar/a18d0a8b41212965d442853804738313.png?s=2048" />
 
@@ -256,14 +256,16 @@
             <section id="education">
                 <h2>Education</h2>
                 <article property="alumniOf" resource="mdh" typeof="CollegeOrUniversity">
-                    <a href="https://www.mdh.se/" property="url">
-                        <h3 property="name">Mälardalen University,
+                    <h3>
+                        <a href="https://www.mdh.se/" property="url">
+                            <span property="name">Mälardalen University</span>,
                             <span property="address" typeof="PostalAddress">
                                 <span property="addressLocality">Västerås</span>,
                                 <span property="addressCountry">Sweden</span>
                             </span>
-                        </h3>
-                    </a>
+
+                        </a>
+                    </h3>
                     <link property="sameAs" href="https://en.wikipedia.org/wiki/M%C3%A4lardalen_University_College" />
 
                     <p class="lead" property="description">A young university with a modern approach to teaching located
@@ -281,14 +283,15 @@
                     </section>
                 </article>
                 <article property="alumniOf" resource="cuni" typeof="CollegeOrUniversity">
-                    <a href="https://www.cuni.cz/" property="url">
-                        <h3 property="name">Charles University,
+                    <h3>
+                        <a href="https://www.cuni.cz/" property="url">
+                            <span property="name">Charles University</span>,
                             <span property="address" typeof="PostalAddress">
                                 <span property="addressLocality">Prague</span>,
                                 <span property="addressCountry">Czech Republic</span>
                             </span>
-                        </h3>
-                    </a>
+                        </a>
+                    </h3>
                     <link property="sameAs" href="https://en.wikipedia.org/wiki/Charles_University" />
 
                     <p class="lead">Founded in 1348, it was the first university in Central Europe. <a before="source: "
