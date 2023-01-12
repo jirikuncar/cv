@@ -103,6 +103,22 @@
         <div>
             <section id="experience">
                 <h2>Experience</h2>
+                <article property="worksFor" resource="veeva" typeof="Organization">
+                    <h3>
+                        <a href="https://www.veeva.com/" property="url">
+                            <span property="name">Veeva Systems</span>
+                        </a>
+                    </h3>
+                    <p class="lead" property="description">Leader in cloud-based software for the global life sciences industry.</p>
+                    <section property="member" typeof="EmployeeRole">
+                        <h4 property="roleName">Engineering Manager</h4>
+                        <div>
+                            <time property="startDate" before="'" after="' - " datetime="2022-06-06">2022/06</time>
+                            <time before="" after="">now()</time>
+                        </div>
+                        <p property="description">Managing two development teams working on Link Key Accounts and Link SideBase products.</p>
+                    </section>
+                </article>
                 <article property="worksFor" resource="datadog" typeof="Organization">
                     <h3>
                         <a href="https://www.datadoghq.com/" property="url">
@@ -114,9 +130,11 @@
                         <h4 property="roleName">Software Engineer</h4>
                         <div>
                             <time property="startDate" before="'" after="' - " datetime="2019-11-04">2019/11</time>
-                            <time before="" after="">now()</time>
+                            <time property="endDate" before="'" after="'" datetime="2022-06-03">2022/06</time>
                         </div>
-                        <p property="description">Development of agents.</p>
+                        <p property="description">Development of pipeline for generating API clients and documentation
+                            using OpenAPI specification. Automatization of validation and integration testing for multiple
+                            languages with CI monitors, alerts and full stack traces for better observability.</p>
                     </section>
                 </article>
                 <article property="alumniOf" resource="stubhub" typeof="Organization">
