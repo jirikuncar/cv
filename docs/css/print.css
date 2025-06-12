@@ -5,3 +5,7 @@ nav {
 p {
     max-width: 100% !important;
 }
+
+header {
+  min-height: 1vh !important;
+}
