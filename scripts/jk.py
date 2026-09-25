@@ -59,28 +59,34 @@ def rounded(pts):
     return d + f"L{f(z[0])} {f(z[1])}", length
 
 
-def svg(name, ux, uy, gl, g, x0, F, monogram="jk"):
-    """Origin is the timeline rail at the bottom edge of the header."""
-    yb, top = -F, -F - 10 * uy
+def svg(name, ux, gl, g, stroke, x0, monogram="jk", height=900):
+    """Horizontal units are pixels from the timeline rail; the height stretches to the header."""
+    n = len(COLORS)
+    half = (n - 1) / 2
+    top, uy = 0.04 * height, 0.075 * height
     u = min(ux, uy)
     P = lambda x, y, r=0: (x0 + x * ux, top + y * uy, r * u)
-    fork, join = yb + F * 0.2, -F * 0.3
-    hook = [P(0, 7), P(0, 10, 1.6), P(3.2, 10, 1.6), P(3.2, 0, 0.6)]
+    J = [P(2.6, 0, 1.2), P(2.6, 10, 1.6), P(0, 10, 1), (x0, top + 11.4 * uy, 0)]
     if monogram == "jk":
-        xs, xl = x0 + 5.6 * ux, x0 + 9.2 * ux
-        mid = (xs + len(COLORS) * gl, top + 5 * uy, 0.4 * u)
-        shapes = [(hook + [P(5.6, 0, 0.6), P(5.6, 10)], xs), ([P(9.2, 0), mid, P(9.2, 10, 1)], xl)]
+        xs = x0 + 5 * ux
+        strands = [
+            ([P(5, 10), P(5, 0, 1.2)] + J, True),
+            ([P(8.6, 0), (xs + n * gl, top + 5 * uy, 0.4 * u), P(8.6, 10)], False),
+        ]
     else:
-        xl = x0 + 9.2 * ux
-        shapes = [(hook + [P(9.2, 0, 0.2), P(5, 5, 0.4), P(9.2, 10, 1)], xl)]
-    out = [f'<svg class="jk jk-{name}" aria-hidden="true">']
+        strands = [([P(8.6, 10), P(4.4, 5, 0.4), P(8.6, 0, 0.2)] + J, True)]
+    left = x0 - (half + 1) * gl - stroke
+    right = x0 + 8.6 * ux + (half + 1) * gl + stroke
+    out = [
+        f'<svg class="jk jk-{name}" viewBox="{left:.0f} 0 {right - left:.0f} {height}" preserveAspectRatio="none"'
+        f' style="--x:{left:.0f}px;width:{right - left:.0f}px;stroke-width:{stroke}px" aria-hidden="true">'
+    ]
     for i, color in enumerate(COLORS):
-        lane = (i - (len(COLORS) - 1) / 2) * gl
-        tail = [(-(i + 1) * g, join, 30), (-(i + 1) * g, 0, 0)]
+        lane = (i - half) * gl
         paths = []
-        for shape, exit_x in shapes:
+        for shape, exits in strands:
             letters = offset(shape, lane)
-            full = offset(shape + [(exit_x, fork, 30)], lane) + tail
+            full = letters + ([(-(i + 1) * g, height, 0)] if exits else [])
             _, a = rounded(letters)
             d, total = rounded(full)
             paths.append(f'<path pathLength="1000" style="--a:{a / total * 1000:.0f}" d="{d}"/>')
@@ -94,5 +100,5 @@ if __name__ == "__main__":
 
     monogram = sys.argv[1] if len(sys.argv) > 1 else "jk"
     half = (len(COLORS) - 1) / 2
-    print(svg("wide", 23, 42, 5, 10, -(half + 1) * 10 - 9.2 * 23, 120, monogram))
-    print(svg("narrow", 27, 24, 4.5, 4, 12 + half * 4.5, 80, monogram))
+    print(svg("wide", 70, 10, 10, 7, -(half + 1) * 10, monogram))
+    print(svg("narrow", 33, 6, 4, 4, -20, monogram))

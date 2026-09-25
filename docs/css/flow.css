@@ -34,7 +34,6 @@
 
   header {
     position: relative;
-    padding-bottom: 336px;
   }
 
   .jk-narrow {
@@ -42,22 +41,34 @@
   }
 
   header > article {
-    padding-block: 1.5rem;
-    background: rgb(0 0 0 / 0.6);
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
+    position: relative;
+    z-index: 1;
+  }
+
+  header > article::before {
+    content: "";
+    position: absolute;
+    inset: -3rem -2rem;
+    z-index: -1;
+    background: rgb(0 0 0 / 0.72);
+    -webkit-mask: linear-gradient(90deg, transparent, #000 2rem calc(100% - 2rem), transparent), linear-gradient(transparent, #000 3rem calc(100% - 3rem), transparent);
+    -webkit-mask-composite: source-in;
+    mask: linear-gradient(90deg, transparent, #000 2rem calc(100% - 2rem), transparent), linear-gradient(transparent, #000 3rem calc(100% - 3rem), transparent);
+    mask-composite: intersect;
   }
 
   .jk {
     position: absolute;
-    left: var(--rail);
-    bottom: 0;
-    width: 1px;
-    height: 1px;
+    top: 0;
+    left: calc(var(--rail) + var(--x));
+    height: 100%;
     overflow: visible;
     fill: none;
-    stroke-width: var(--w);
     stroke-linecap: round;
+  }
+
+  .jk path {
+    vector-effect: non-scaling-stroke;
   }
 
   main {
@@ -224,15 +235,6 @@
       display: block;
     }
 
-    header {
-      padding-bottom: 0;
-    }
-
-    header > article {
-      background: none;
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
-    }
   }
 }
 
