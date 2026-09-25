@@ -12,9 +12,19 @@
 
 @media screen {
   :root {
-    --g: 1.6px;
+    --g: 4px;
     --w: 2px;
-    --rail: calc(max(0px, (100% - 72ch) / 2) + 1rem + 1.5px);
+    --edge: max(0px, (100% - 72ch) / 2);
+    --indent: max(1rem, 10 * var(--g) + 12px - var(--edge));
+    --rail: calc(var(--edge) + var(--indent) + 1.5px);
+  }
+
+  header > article, main > div {
+    padding-left: var(--indent);
+  }
+
+  main h2 {
+    padding-left: calc(1rem + 3px);
   }
 
   main, [data-flow] {
@@ -187,7 +197,7 @@
 
   @media (min-width: 1240px) {
     :root {
-      --g: 6px;
+      --g: 10px;
       --w: 3px;
     }
 
