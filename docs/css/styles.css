@@ -284,6 +284,13 @@ main article > section time {
   margin-bottom: 1.5rem;
 }
 
+.orcid {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: -0.125em;
+}
+
 #opensource ul {
   padding-left: 1rem;
   border-left: 2px solid var(--rule);
