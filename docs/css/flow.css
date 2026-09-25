@@ -4,6 +4,12 @@
   initial-value: 1;
 }
 
+@property --lag {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
 @media screen {
   :root {
     --g: 2px;
@@ -13,7 +19,7 @@
 
   main, main article[resource] {
     --run: calc(100% + 3000px);
-    --front: calc(var(--p) * (100vh + 100% + 3000px) - 30vh);
+    --front: calc(var(--p) * (100vh + 100% + 3000px) - var(--lag));
   }
 
   header {
@@ -190,6 +196,12 @@
       animation-range: 0 50vh;
     }
 
+    :root {
+      animation: lag linear both;
+      animation-timeline: scroll(root);
+      animation-range: calc(100% - 60vh) 100%;
+    }
+
     main, main article[resource] {
       view-timeline: --flow block;
       animation: flow linear both;
@@ -220,6 +232,15 @@
   100% {
     stroke-dasharray: calc(1000 - var(--a)) 2000;
     stroke-dashoffset: calc(-1 * var(--a));
+  }
+}
+
+@keyframes lag {
+  from {
+    --lag: 30vh;
+  }
+  to {
+    --lag: 0px;
   }
 }
 
