@@ -225,7 +225,7 @@ main article {
   border-left: 3px solid var(--brand, var(--rule));
 }
 
-[resource="pydantic"] { --brand: #e520e9; }
+[resource="pydantic"], #articles article { --brand: #e520e9; }
 [resource="veeva"] { --brand: #d27a07; }
 [resource="datadog"] { --brand: #632ca6; }
 [resource="stubhub"] { --brand: #5e29ba; }
@@ -268,15 +268,15 @@ main article > section time {
   font-variant-numeric: tabular-nums;
 }
 
-#publications article > section {
+#articles article > section, #publications article > section {
   display: block;
 }
 
-#publications article > section + section {
+#articles article > section + section, #publications article > section + section {
   margin-top: 1.25rem;
 }
 
-#publications article > section > p {
+#articles article > section > p, #publications article > section > p {
   margin-top: 0.15rem;
 }
 
