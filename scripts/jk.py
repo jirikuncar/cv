@@ -32,15 +32,13 @@ def unit(a, b):
 
 def rounded(pts):
     f = lambda v: f"{v:.1f}".rstrip("0").rstrip(".")
-    d, length, cur = f"M{f(pts[0][0])} {f(pts[0][1])}", 0.0, pts[0][:2]
+    d = f"M{f(pts[0][0])} {f(pts[0][1])}"
     for j in range(1, len(pts) - 1):
         a, p, b = pts[j - 1], pts[j], pts[j + 1]
         u, v = unit(a, p), unit(p, b)
         cross = u[0] * v[1] - u[1] * v[0]
         turn = math.acos(max(-1, min(1, u[0] * v[0] + u[1] * v[1])))
         if abs(cross) < 1e-3 or not p[2]:
-            length += math.dist(cur, p[:2])
-            cur = p[:2]
             d += f"L{f(p[0])} {f(p[1])}"
             continue
         dd = p[3] if len(p) > 3 else 0
@@ -51,12 +49,9 @@ def rounded(pts):
             t, r = room, room / math.tan(turn / 2)
         s = (p[0] - u[0] * t, p[1] - u[1] * t)
         e = (p[0] + v[0] * t, p[1] + v[1] * t)
-        length += math.dist(cur, s) + r * turn
-        cur = e
         d += f"L{f(s[0])} {f(s[1])}A{f(r)} {f(r)} 0 0 {1 if cross > 0 else 0} {f(e[0])} {f(e[1])}"
     z = pts[-1]
-    length += math.dist(cur, z[:2])
-    return d + f"L{f(z[0])} {f(z[1])}", length
+    return d + f"L{f(z[0])} {f(z[1])}"
 
 
 def svg(name, ux, gl, g, stroke, x0, monogram="jk", height=900):
@@ -79,17 +74,14 @@ def svg(name, ux, gl, g, stroke, x0, monogram="jk", height=900):
     right = x0 + 8.6 * ux + (half + 1) * gl + stroke
     out = [
         f'<svg class="jk jk-{name}" viewBox="{left:.0f} 0 {right - left:.0f} {height}" preserveAspectRatio="none"'
-        f' style="--x:{left:.0f}px;width:{right - left:.0f}px;stroke-width:{stroke}px" aria-hidden="true">'
+        f' style="--x:{left:.0f}px;width:{right - left:.0f}px;--sw:{stroke}px" aria-hidden="true">'
     ]
     for i, color in enumerate(COLORS):
         lane = (i - half) * gl
         paths = []
         for shape, exits in strands:
-            letters = offset(shape, lane)
-            full = letters + ([(-(i + 1) * g, height, 0)] if exits else [])
-            _, a = rounded(letters)
-            d, total = rounded(full)
-            paths.append(f'<path pathLength="1000" style="--a:{a / total * 1000:.0f}" d="{d}"/>')
+            full = offset(shape, lane) + ([(-(i + 1) * g, height, 0)] if exits else [])
+            paths.append(f'<path d="{rounded(full)}"/>')
         out.append(f'<g style="--i:{i};stroke:var(--{color})">{"".join(paths)}</g>')
     out.append("</svg>")
     return "".join(out)

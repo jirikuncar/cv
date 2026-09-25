@@ -65,6 +65,7 @@
     overflow: visible;
     opacity: 0.55;
     fill: none;
+    stroke-width: var(--sw);
     stroke-linecap: round;
   }
 
@@ -252,16 +253,12 @@
 
 @media screen and (prefers-reduced-motion: no-preference) {
   .jk g {
-    animation: jk-pour 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) calc(var(--i) * 90ms) both;
+    animation:
+      jk-pour 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) calc(var(--i) * 90ms) both,
+      jk-breathe 4.8s ease-in-out calc(var(--i) * -0.36s) infinite;
   }
 
   @supports (animation-timeline: scroll()) {
-    .jk path {
-      animation: jk-drain linear both;
-      animation-timeline: scroll(root);
-      animation-range: calc(var(--i) * 4vh) calc(80vh + var(--i) * 4vh);
-    }
-
     :root {
       animation: lag linear both;
       animation-timeline: scroll(root);
@@ -286,14 +283,14 @@
   }
 }
 
-@keyframes jk-drain {
-  from {
-    stroke-dasharray: 1000 2000;
-    stroke-dashoffset: 0;
+@keyframes jk-breathe {
+  0%, 100% {
+    opacity: 0.7;
+    stroke-width: calc(var(--sw) * 0.8);
   }
-  to {
-    stroke-dasharray: calc(1000 - var(--a)) 2000;
-    stroke-dashoffset: calc(-1 * var(--a));
+  50% {
+    opacity: 1;
+    stroke-width: calc(var(--sw) * 1.1);
   }
 }
 
