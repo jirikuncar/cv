@@ -235,6 +235,7 @@ main article {
   --mdh: #ff4800;
   --cuni: #d22d40;
   --oss: #3776ab;
+  --orcid: #a6ce39;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -255,6 +256,7 @@ main article {
 [resource="cern"] { --brand: var(--cern); }
 [resource="mdh"] { --brand: var(--mdh); }
 [resource="cuni"] { --brand: var(--cuni); }
+#publications article { --brand: var(--orcid); }
 
 main article + article {
   margin-top: 2.25rem;

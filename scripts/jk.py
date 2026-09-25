@@ -2,7 +2,7 @@
 
 import math
 
-COLORS = ["pydantic", "veeva", "datadog", "stubhub", "sdsc", "cern", "oss", "pydantic", "mdh", "cuni"]
+COLORS = ["pydantic", "veeva", "datadog", "stubhub", "sdsc", "cern", "oss", "pydantic", "orcid", "mdh", "cuni"]
 
 
 def normal(a, b):
@@ -94,5 +94,5 @@ if __name__ == "__main__":
 
     monogram = sys.argv[1] if len(sys.argv) > 1 else "jk"
     half = (len(COLORS) - 1) / 2
-    print(svg("wide", 24, 42, 6, 10, -(half + 1) * 10 - 9.2 * 24, 120, monogram))
-    print(svg("narrow", 28, 24, 4.5, 4, 12 + half * 4.5, 80, monogram))
+    print(svg("wide", 23, 42, 5, 10, -(half + 1) * 10 - 9.2 * 23, 120, monogram))
+    print(svg("narrow", 27, 24, 4.5, 4, 12 + half * 4.5, 80, monogram))

@@ -15,7 +15,7 @@
     --g: 4px;
     --w: 2px;
     --edge: max(0px, (100% - 72ch) / 2);
-    --indent: max(1rem, 10 * var(--g) + 12px - var(--edge));
+    --indent: max(1rem, 11 * var(--g) + 12px - var(--edge));
     --rail: calc(var(--edge) + var(--indent) + 1.5px);
   }
 
@@ -23,7 +23,7 @@
     padding-left: var(--indent);
   }
 
-  main h2 {
+  main h2, #publications > p {
     padding-left: calc(1rem + 3px);
   }
 
@@ -84,11 +84,12 @@
       calc(-6 * var(--g)) 0 var(--cern),
       calc(-7 * var(--g)) 0 var(--oss),
       calc(-8 * var(--g)) 0 var(--pydantic),
-      calc(-9 * var(--g)) 0 var(--mdh),
-      calc(-10 * var(--g)) 0 var(--cuni);
+      calc(-9 * var(--g)) 0 var(--orcid),
+      calc(-10 * var(--g)) 0 var(--mdh),
+      calc(-11 * var(--g)) 0 var(--cuni);
   }
 
-  [data-flow] {
+  [data-flow], #opensource [data-flow] {
     position: relative;
     border-left-color: transparent;
     background: linear-gradient(var(--brand) 0 0) no-repeat calc(1.5px - var(--w) / 2) 0 / var(--w) clamp(0px, var(--front), 100%) border-box;
@@ -96,16 +97,16 @@
 
   [data-flow]::before {
     left: calc(-1.5px - var(--w) / 2);
-    box-shadow: var(--lanes), calc(-5 * var(--g) - var(--w) - 1.5px) 0 0 calc(5 * var(--g)) var(--background);
+    box-shadow: var(--lanes), calc(-6 * var(--g) - var(--w) - 1.5px) 0 0 calc(6 * var(--g)) var(--background);
   }
 
   [data-flow]::after {
-    top: calc(-5 * var(--g));
+    top: calc(-6 * var(--g));
     left: calc(-1.5px - var(--w) / 2 - var(--g));
-    height: clamp(0px, var(--front) + 5 * var(--g), 5 * var(--g));
+    height: clamp(0px, var(--front) + 6 * var(--g), 6 * var(--g));
     background: var(--brand);
     box-shadow: var(--lanes);
-    transform: skewX(11.31deg);
+    transform: skewX(9.462deg);
     transform-origin: top;
   }
 
@@ -118,8 +119,9 @@
       calc(-5 * var(--g)) 0 var(--cern),
       calc(-6 * var(--g)) 0 var(--oss),
       calc(-7 * var(--g)) 0 var(--pydantic),
-      calc(-8 * var(--g)) 0 var(--mdh),
-      calc(-9 * var(--g)) 0 var(--cuni);
+      calc(-8 * var(--g)) 0 var(--orcid),
+      calc(-9 * var(--g)) 0 var(--mdh),
+      calc(-10 * var(--g)) 0 var(--cuni);
   }
 
   [data-flow="veeva"] {
@@ -130,8 +132,9 @@
       calc(-4 * var(--g)) 0 var(--cern),
       calc(-5 * var(--g)) 0 var(--oss),
       calc(-6 * var(--g)) 0 var(--pydantic),
-      calc(-7 * var(--g)) 0 var(--mdh),
-      calc(-8 * var(--g)) 0 var(--cuni);
+      calc(-7 * var(--g)) 0 var(--orcid),
+      calc(-8 * var(--g)) 0 var(--mdh),
+      calc(-9 * var(--g)) 0 var(--cuni);
   }
 
   [data-flow="datadog"] {
@@ -141,8 +144,9 @@
       calc(-3 * var(--g)) 0 var(--cern),
       calc(-4 * var(--g)) 0 var(--oss),
       calc(-5 * var(--g)) 0 var(--pydantic),
-      calc(-6 * var(--g)) 0 var(--mdh),
-      calc(-7 * var(--g)) 0 var(--cuni);
+      calc(-6 * var(--g)) 0 var(--orcid),
+      calc(-7 * var(--g)) 0 var(--mdh),
+      calc(-8 * var(--g)) 0 var(--cuni);
   }
 
   [data-flow="stubhub"] {
@@ -151,8 +155,9 @@
       calc(-2 * var(--g)) 0 var(--cern),
       calc(-3 * var(--g)) 0 var(--oss),
       calc(-4 * var(--g)) 0 var(--pydantic),
-      calc(-5 * var(--g)) 0 var(--mdh),
-      calc(-6 * var(--g)) 0 var(--cuni);
+      calc(-5 * var(--g)) 0 var(--orcid),
+      calc(-6 * var(--g)) 0 var(--mdh),
+      calc(-7 * var(--g)) 0 var(--cuni);
   }
 
   [data-flow="sdsc"] {
@@ -160,26 +165,36 @@
       calc(-1 * var(--g)) 0 var(--cern),
       calc(-2 * var(--g)) 0 var(--oss),
       calc(-3 * var(--g)) 0 var(--pydantic),
-      calc(-4 * var(--g)) 0 var(--mdh),
-      calc(-5 * var(--g)) 0 var(--cuni);
+      calc(-4 * var(--g)) 0 var(--orcid),
+      calc(-5 * var(--g)) 0 var(--mdh),
+      calc(-6 * var(--g)) 0 var(--cuni);
   }
 
   [data-flow="cern"] {
     --lanes:
       calc(-1 * var(--g)) 0 var(--oss),
       calc(-2 * var(--g)) 0 var(--pydantic),
-      calc(-3 * var(--g)) 0 var(--mdh),
-      calc(-4 * var(--g)) 0 var(--cuni);
+      calc(-3 * var(--g)) 0 var(--orcid),
+      calc(-4 * var(--g)) 0 var(--mdh),
+      calc(-5 * var(--g)) 0 var(--cuni);
   }
 
   [data-flow="oss"] {
     --lanes:
       calc(-1 * var(--g)) 0 var(--pydantic),
+      calc(-2 * var(--g)) 0 var(--orcid),
+      calc(-3 * var(--g)) 0 var(--mdh),
+      calc(-4 * var(--g)) 0 var(--cuni);
+  }
+
+  [data-flow="articles"] {
+    --lanes:
+      calc(-1 * var(--g)) 0 var(--orcid),
       calc(-2 * var(--g)) 0 var(--mdh),
       calc(-3 * var(--g)) 0 var(--cuni);
   }
 
-  [data-flow="articles"] {
+  [data-flow="publications"] {
     --lanes:
       calc(-1 * var(--g)) 0 var(--mdh),
       calc(-2 * var(--g)) 0 var(--cuni);
