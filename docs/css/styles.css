@@ -225,21 +225,34 @@ main article {
   border-left: 3px solid var(--brand, var(--rule));
 }
 
-[resource="pydantic"], #articles article { --brand: #e520e9; }
-[resource="veeva"] { --brand: #d27a07; }
-[resource="datadog"] { --brand: #632ca6; }
-[resource="stubhub"] { --brand: #5e29ba; }
-[resource="sdsc"] { --brand: #5561a6; }
-[resource="cern"] { --brand: #0033a0; }
-[resource="mdh"] { --brand: #ff4800; }
-[resource="cuni"] { --brand: #d22d40; }
+:root {
+  --pydantic: #e520e9;
+  --veeva: #d27a07;
+  --datadog: #632ca6;
+  --stubhub: #5e29ba;
+  --sdsc: #5561a6;
+  --cern: #0033a0;
+  --mdh: #ff4800;
+  --cuni: #d22d40;
+}
 
 @media screen and (prefers-color-scheme: dark) {
-  [resource="veeva"] { --brand: #f7981d; }
-  [resource="datadog"] { --brand: #8000ff; }
-  [resource="stubhub"] { --brand: #7943d6; }
-  [resource="cern"] { --brand: #4486e6; }
+  :root {
+    --veeva: #f7981d;
+    --datadog: #8000ff;
+    --stubhub: #7943d6;
+    --cern: #4486e6;
+  }
 }
+
+[resource="pydantic"], #articles article { --brand: var(--pydantic); }
+[resource="veeva"] { --brand: var(--veeva); }
+[resource="datadog"] { --brand: var(--datadog); }
+[resource="stubhub"] { --brand: var(--stubhub); }
+[resource="sdsc"] { --brand: var(--sdsc); }
+[resource="cern"] { --brand: var(--cern); }
+[resource="mdh"] { --brand: var(--mdh); }
+[resource="cuni"] { --brand: var(--cuni); }
 
 main article + article {
   margin-top: 2.25rem;
@@ -306,6 +319,10 @@ main article > section time {
   main article > section {
     grid-template-columns: 1fr;
   }
+}
+
+.jk {
+  display: none;
 }
 
 /* NAV */
