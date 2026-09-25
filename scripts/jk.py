@@ -101,4 +101,5 @@ if __name__ == "__main__":
     monogram = sys.argv[1] if len(sys.argv) > 1 else "jk"
     half = (len(COLORS) - 1) / 2
     print(svg("wide", 70, 10, 10, 7, -(half + 1) * 10, monogram))
+    print(svg("mid", 56, 8, 7, 6, -(half + 1) * 7, monogram))
     print(svg("narrow", 33, 6, 4, 4, -20, monogram))

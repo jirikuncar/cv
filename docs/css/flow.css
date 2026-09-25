@@ -63,12 +63,9 @@
     left: calc(var(--rail) + var(--x));
     height: 100%;
     overflow: visible;
+    opacity: 0.55;
     fill: none;
     stroke-linecap: round;
-  }
-
-  .jk path {
-    vector-effect: non-scaling-stroke;
   }
 
   main {
@@ -221,6 +218,21 @@
       0 0 transparent;
   }
 
+  @media (min-width: 700px) and (max-width: 1239.98px) {
+    :root {
+      --g: 7px;
+      --w: 3px;
+    }
+
+    .jk-narrow {
+      display: none;
+    }
+
+    .jk-mid {
+      display: block;
+    }
+  }
+
   @media (min-width: 1240px) {
     :root {
       --g: 10px;
@@ -275,15 +287,11 @@
 }
 
 @keyframes jk-drain {
-  0% {
-    stroke-dasharray: var(--a) 2000;
+  from {
+    stroke-dasharray: 1000 2000;
     stroke-dashoffset: 0;
   }
-  60% {
-    stroke-dasharray: calc(1000 - 0.6 * var(--a)) 2000;
-    stroke-dashoffset: calc(-0.6 * var(--a));
-  }
-  100% {
+  to {
     stroke-dasharray: calc(1000 - var(--a)) 2000;
     stroke-dashoffset: calc(-1 * var(--a));
   }
