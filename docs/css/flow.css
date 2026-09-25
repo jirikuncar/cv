@@ -12,12 +12,12 @@
 
 @media screen {
   :root {
-    --g: 2px;
+    --g: 1.6px;
     --w: 2px;
     --rail: calc(max(0px, (100% - 72ch) / 2) + 1rem + 1.5px);
   }
 
-  main, main article[resource] {
+  main, [data-flow] {
     --run: calc(100% + 3000px);
     --front: calc(var(--p) * (100vh + 100% + 3000px) - var(--lag));
   }
@@ -55,7 +55,7 @@
     overflow: clip;
   }
 
-  main::before, main article[resource]::before, main article[resource]::after {
+  main::before, [data-flow]::before, [data-flow]::after {
     content: "";
     position: absolute;
     top: 0;
@@ -72,88 +72,115 @@
       calc(-4 * var(--g)) 0 var(--stubhub),
       calc(-5 * var(--g)) 0 var(--sdsc),
       calc(-6 * var(--g)) 0 var(--cern),
-      calc(-7 * var(--g)) 0 var(--mdh),
-      calc(-8 * var(--g)) 0 var(--cuni);
+      calc(-7 * var(--g)) 0 var(--oss),
+      calc(-8 * var(--g)) 0 var(--pydantic),
+      calc(-9 * var(--g)) 0 var(--mdh),
+      calc(-10 * var(--g)) 0 var(--cuni);
   }
 
-  main article[resource] {
+  [data-flow] {
     position: relative;
     border-left-color: transparent;
     background: linear-gradient(var(--brand) 0 0) no-repeat calc(1.5px - var(--w) / 2) 0 / var(--w) clamp(0px, var(--front), 100%) border-box;
   }
 
-  main article[resource]::before {
+  [data-flow]::before {
     left: calc(-1.5px - var(--w) / 2);
-    box-shadow: var(--lanes), calc(-4 * var(--g) - var(--w) - 1.5px) 0 0 calc(4 * var(--g)) var(--background);
+    box-shadow: var(--lanes), calc(-5 * var(--g) - var(--w) - 1.5px) 0 0 calc(5 * var(--g)) var(--background);
   }
 
-  main article[resource]::after {
-    top: calc(-4 * var(--g));
+  [data-flow]::after {
+    top: calc(-5 * var(--g));
     left: calc(-1.5px - var(--w) / 2 - var(--g));
-    height: clamp(0px, var(--front) + 4 * var(--g), 4 * var(--g));
+    height: clamp(0px, var(--front) + 5 * var(--g), 5 * var(--g));
     background: var(--brand);
     box-shadow: var(--lanes);
-    transform: skewX(14.036deg);
+    transform: skewX(11.31deg);
     transform-origin: top;
   }
 
-  [resource="pydantic"] {
+  [data-flow="pydantic"] {
     --lanes:
       calc(-1 * var(--g)) 0 var(--veeva),
       calc(-2 * var(--g)) 0 var(--datadog),
       calc(-3 * var(--g)) 0 var(--stubhub),
       calc(-4 * var(--g)) 0 var(--sdsc),
       calc(-5 * var(--g)) 0 var(--cern),
-      calc(-6 * var(--g)) 0 var(--mdh),
-      calc(-7 * var(--g)) 0 var(--cuni);
+      calc(-6 * var(--g)) 0 var(--oss),
+      calc(-7 * var(--g)) 0 var(--pydantic),
+      calc(-8 * var(--g)) 0 var(--mdh),
+      calc(-9 * var(--g)) 0 var(--cuni);
   }
 
-  [resource="veeva"] {
+  [data-flow="veeva"] {
     --lanes:
       calc(-1 * var(--g)) 0 var(--datadog),
       calc(-2 * var(--g)) 0 var(--stubhub),
       calc(-3 * var(--g)) 0 var(--sdsc),
       calc(-4 * var(--g)) 0 var(--cern),
-      calc(-5 * var(--g)) 0 var(--mdh),
-      calc(-6 * var(--g)) 0 var(--cuni);
+      calc(-5 * var(--g)) 0 var(--oss),
+      calc(-6 * var(--g)) 0 var(--pydantic),
+      calc(-7 * var(--g)) 0 var(--mdh),
+      calc(-8 * var(--g)) 0 var(--cuni);
   }
 
-  [resource="datadog"] {
+  [data-flow="datadog"] {
     --lanes:
       calc(-1 * var(--g)) 0 var(--stubhub),
       calc(-2 * var(--g)) 0 var(--sdsc),
       calc(-3 * var(--g)) 0 var(--cern),
+      calc(-4 * var(--g)) 0 var(--oss),
+      calc(-5 * var(--g)) 0 var(--pydantic),
+      calc(-6 * var(--g)) 0 var(--mdh),
+      calc(-7 * var(--g)) 0 var(--cuni);
+  }
+
+  [data-flow="stubhub"] {
+    --lanes:
+      calc(-1 * var(--g)) 0 var(--sdsc),
+      calc(-2 * var(--g)) 0 var(--cern),
+      calc(-3 * var(--g)) 0 var(--oss),
+      calc(-4 * var(--g)) 0 var(--pydantic),
+      calc(-5 * var(--g)) 0 var(--mdh),
+      calc(-6 * var(--g)) 0 var(--cuni);
+  }
+
+  [data-flow="sdsc"] {
+    --lanes:
+      calc(-1 * var(--g)) 0 var(--cern),
+      calc(-2 * var(--g)) 0 var(--oss),
+      calc(-3 * var(--g)) 0 var(--pydantic),
       calc(-4 * var(--g)) 0 var(--mdh),
       calc(-5 * var(--g)) 0 var(--cuni);
   }
 
-  [resource="stubhub"] {
+  [data-flow="cern"] {
     --lanes:
-      calc(-1 * var(--g)) 0 var(--sdsc),
-      calc(-2 * var(--g)) 0 var(--cern),
+      calc(-1 * var(--g)) 0 var(--oss),
+      calc(-2 * var(--g)) 0 var(--pydantic),
       calc(-3 * var(--g)) 0 var(--mdh),
       calc(-4 * var(--g)) 0 var(--cuni);
   }
 
-  [resource="sdsc"] {
+  [data-flow="oss"] {
     --lanes:
-      calc(-1 * var(--g)) 0 var(--cern),
+      calc(-1 * var(--g)) 0 var(--pydantic),
       calc(-2 * var(--g)) 0 var(--mdh),
       calc(-3 * var(--g)) 0 var(--cuni);
   }
 
-  [resource="cern"] {
+  [data-flow="articles"] {
     --lanes:
       calc(-1 * var(--g)) 0 var(--mdh),
       calc(-2 * var(--g)) 0 var(--cuni);
   }
 
-  [resource="mdh"] {
+  [data-flow="mdh"] {
     --lanes:
       calc(-1 * var(--g)) 0 var(--cuni);
   }
 
-  [resource="cuni"] {
+  [data-flow="cuni"] {
     --lanes:
       0 0 transparent;
   }
@@ -193,7 +220,7 @@
     .jk path {
       animation: jk-drain linear both;
       animation-timeline: scroll(root);
-      animation-range: 0 50vh;
+      animation-range: calc(var(--i) * 4vh) calc(80vh + var(--i) * 4vh);
     }
 
     :root {
@@ -202,7 +229,7 @@
       animation-range: calc(100% - 60vh) 100%;
     }
 
-    main, main article[resource] {
+    main, [data-flow] {
       view-timeline: --flow block;
       animation: flow linear both;
       animation-timeline: --flow;

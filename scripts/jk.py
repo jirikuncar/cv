@@ -2,7 +2,7 @@
 
 import math
 
-ORGS = ["pydantic", "veeva", "datadog", "stubhub", "sdsc", "cern", "mdh", "cuni"]
+COLORS = ["pydantic", "veeva", "datadog", "stubhub", "sdsc", "cern", "oss", "pydantic", "mdh", "cuni"]
 
 
 def normal(a, b):
@@ -68,14 +68,14 @@ def svg(name, ux, uy, gl, g, x0, F, monogram="jk"):
     hook = [P(0, 7), P(0, 10, 1.6), P(3.2, 10, 1.6), P(3.2, 0, 0.6)]
     if monogram == "jk":
         xs, xl = x0 + 5.6 * ux, x0 + 9.2 * ux
-        mid = (xs + 8 * gl, top + 5 * uy, 0.4 * u)
+        mid = (xs + len(COLORS) * gl, top + 5 * uy, 0.4 * u)
         shapes = [(hook + [P(5.6, 0, 0.6), P(5.6, 10)], xs), ([P(9.2, 0), mid, P(9.2, 10, 1)], xl)]
     else:
         xl = x0 + 9.2 * ux
         shapes = [(hook + [P(9.2, 0, 0.2), P(5, 5, 0.4), P(9.2, 10, 1)], xl)]
     out = [f'<svg class="jk jk-{name}" aria-hidden="true">']
-    for i, org in enumerate(ORGS):
-        lane = (i - 3.5) * gl
+    for i, color in enumerate(COLORS):
+        lane = (i - (len(COLORS) - 1) / 2) * gl
         tail = [(-(i + 1) * g, join, 30), (-(i + 1) * g, 0, 0)]
         paths = []
         for shape, exit_x in shapes:
@@ -84,7 +84,7 @@ def svg(name, ux, uy, gl, g, x0, F, monogram="jk"):
             _, a = rounded(letters)
             d, total = rounded(full)
             paths.append(f'<path pathLength="1000" style="--a:{a / total * 1000:.0f}" d="{d}"/>')
-        out.append(f'<g style="--i:{i};stroke:var(--{org})">{"".join(paths)}</g>')
+        out.append(f'<g style="--i:{i};stroke:var(--{color})">{"".join(paths)}</g>')
     out.append("</svg>")
     return "".join(out)
 
@@ -93,5 +93,6 @@ if __name__ == "__main__":
     import sys
 
     monogram = sys.argv[1] if len(sys.argv) > 1 else "jk"
-    print(svg("wide", 26, 42, 6, 6, -4.5 * 6 - 9.2 * 26, 120, monogram))
-    print(svg("narrow", 32, 24, 5, 2, 12 + 3.5 * 5, 80, monogram))
+    half = (len(COLORS) - 1) / 2
+    print(svg("wide", 25, 42, 6, 6, -(half + 1) * 6 - 9.2 * 25, 120, monogram))
+    print(svg("narrow", 31, 24, 4.5, 1.6, 12 + half * 4.5, 80, monogram))

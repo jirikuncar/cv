@@ -234,6 +234,7 @@ main article {
   --cern: #0033a0;
   --mdh: #ff4800;
   --cuni: #d22d40;
+  --oss: #3776ab;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -242,6 +243,7 @@ main article {
     --datadog: #8000ff;
     --stubhub: #7943d6;
     --cern: #4486e6;
+    --oss: #4b8bbe;
   }
 }
 
@@ -305,8 +307,9 @@ main article > section time {
 }
 
 #opensource ul {
+  --brand: var(--oss);
   padding-left: 1rem;
-  border-left: 2px solid var(--rule);
+  border-left: 3px solid var(--brand);
   list-style: none;
 }
 
