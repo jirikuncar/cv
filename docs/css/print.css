@@ -1,11 +1,84 @@
-nav {
-    display: none !important;
+@page {
+  size: A4;
+  margin: 12mm 14mm;
 }
 
-p {
-    max-width: 100% !important;
+:root {
+  color-scheme: light;
+  --text: #000;
+  --muted: #444;
+  --background: #fff;
+  --rule: #ccc;
+  --link: #00458b;
+  --heading-link: #005e5e;
+  --accent: #6e008b;
+  --inverse-text: #000;
+  --inverse-background: #fff;
+  --inverse-muted: #444;
+  --inverse-accent: #008f5d;
+}
+
+body {
+  font-size: 9.5pt;
+  line-height: 1.45;
+}
+
+nav, header h1::after {
+  display: none !important;
 }
 
 header {
-  min-height: 1vh !important;
+  min-height: 0;
+}
+
+header > article, main > div {
+  width: 100%;
+  padding: 0;
+}
+
+header > article > * + * {
+  margin-top: 0.6rem;
+}
+
+header h1 {
+  font-size: 2.2em;
+}
+
+header h2 {
+  display: inline;
+  font-size: 1.1em;
+}
+
+header h2 + h2 {
+  margin-top: 0;
+}
+
+header h2 + h2::before {
+  content: " ";
+}
+
+main {
+  padding: 1.25rem 0 0;
+}
+
+main section + section {
+  margin-top: 1.25rem;
+}
+
+main h2 {
+  margin-bottom: 0.6rem;
+  break-after: avoid;
+}
+
+main article + article {
+  margin-top: 1rem;
+}
+
+main article > section {
+  margin-top: 0.5rem;
+  break-inside: avoid;
+}
+
+main article > h3, main article > .lead {
+  break-after: avoid;
 }
